@@ -1,4 +1,4 @@
-# Use clusterRoles to give your users extra permissions
+# How to use clusterRoles with Okteto to give your users extra permissions
 
 Okteto's default permission model gives every user `cluster-admin` access to their namespaces. This means that they can perform any `namespace-scoped` operation on their own namespaces, such as create deployments, update secrets, etc. This is meant to facilitate the development experience, while protecting your clusters and other users. 
 
@@ -18,10 +18,12 @@ In order to give the user permission to do this, you need to do the following:
 1. Using a kuberentes context that has cluster permissions, create the role: `kubectl apply -f cluster-role/clusterrole.yaml`
 2. Update Okteto's helm configuration file to include the clusterRole we just created:
     ```
+    ...
     license: ....
     subdomain: dev.example.com
     auth: ...
     globalClusterRole: custom-role-with-nodes-access
+    ...
     ```
 3. Apply the configuration: `helm upgrade okteto okteto/okteto -f config.yaml --namespace=okteto --version 1.16.0` 
 

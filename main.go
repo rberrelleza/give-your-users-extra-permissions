@@ -33,5 +33,5 @@ func helloServer(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Fprintf(w, "Hello world, your cluster has %f nodes!", len(nodes.Items))
+	fmt.Fprintf(w, "Hello world, your cluster has %d nodes!", len(nodes.Items))
 }
