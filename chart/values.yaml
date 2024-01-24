@@ -1,0 +1,3 @@
+replicaCount: 1
+minAvailable: 2
+image: ""

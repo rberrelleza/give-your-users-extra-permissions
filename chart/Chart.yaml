@@ -1,0 +1,7 @@
+apiVersion: v2
+name: hello-world-extra-permissions
+description: Sample on how to give extra permissions to your Okteto users via globalClusterRole
+type: application
+version: 0.1.0
+appVersion: 1.0.0
+icon: https://raw.githubusercontent.com/okteto/icons/main/hello-world.png

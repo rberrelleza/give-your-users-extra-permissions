@@ -1,0 +1,25 @@
+icon: https://raw.githubusercontent.com/okteto/icons/main/hello-world.png
+
+build:
+  hello-world:
+    context: .
+
+deploy:
+  # use remote to eliminate local dependencies on the helm CLI
+  remote: true
+  commands:
+  - name: Deploy helm chart
+    command: helm upgrade --install hello-world chart --set image=${OKTETO_BUILD_HELLO_WORLD_IMAGE}
+
+dev:
+  hello-world:
+    command: bash
+    sync:
+      - .:/usr/src/app
+    # for remote debugging
+    securityContext:
+      capabilities:
+        add:
+          - SYS_PTRACE
+    forward:
+      - 2345:2345
